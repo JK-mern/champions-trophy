@@ -2,7 +2,7 @@ import { prisma } from "@/lib/prisma";
 
 export async function GET() {
   try {
-    const matches = await prisma.matches.findMany({});
+    const matches = await prisma.matches.findMany({ orderBy : {id : 'asc'} });
 
 
     return new Response(JSON.stringify(matches), { status: 200 });
