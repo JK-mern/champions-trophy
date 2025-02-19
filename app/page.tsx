@@ -1,4 +1,4 @@
-import { Trophy, Calendar, Activity } from "lucide-react";
+import { Trophy, Calendar } from "lucide-react";
 import Navbar from "./components/Navbar";
 
 interface Match {
@@ -36,11 +36,9 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      {/* Header */}
       <Navbar />
 
       <main className="container mx-auto px-4 py-8">
-        {/* Leader Section */}
         <div className="bg-white rounded-xl shadow-md p-8 mb-8 transform hover:scale-[1.02] transition-transform">
           <div className="flex items-center gap-6">
             <div className="bg-yellow-50 p-4 rounded-full">
@@ -60,7 +58,6 @@ export default async function Home() {
           </div>
         </div>
 
-        {/* Matches Section */}
         <div className="bg-white rounded-xl shadow-md p-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-8 flex items-center gap-3">
             <Calendar className="h-7 w-7 text-blue-600" />
