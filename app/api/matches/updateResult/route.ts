@@ -16,7 +16,7 @@ export async function PUT(request: Request) {
   });
 
  
-  const userPoints = await prisma.user.updateMany({
+ await prisma.user.updateMany({
     where: {
       id: { 
         in: users.map((user) => user.userId),
