@@ -24,8 +24,8 @@ model Matches {
   id               Int                @id @default(autoincrement())
   team1            String
   team2            String
-  date             DateTime
-  result           String
+  date             String 
+  result           String   @default("Not Played")
   ResultPrediction ResultPrediction[]
 }
 

@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Matches" ALTER COLUMN "date" SET DEFAULT CURRENT_TIMESTAMP,
+ALTER COLUMN "result" SET DEFAULT 'Not Played';
