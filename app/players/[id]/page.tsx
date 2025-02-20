@@ -13,7 +13,7 @@ interface Prediction {
 async function getUserPredictions(id: string): Promise<Prediction[]> {
   try {
     const res = await fetch(
-      `http://localhost:3000/api/prediction/getUsersPrediction/${id}`,
+      `http://localhost:3000/api/prediction/getUsersPrediction/?id=${id}`,
       {
         cache: "no-store",
       }
@@ -28,8 +28,11 @@ async function getUserPredictions(id: string): Promise<Prediction[]> {
   }
 }
 
-export default async function page({ params }: { params: { id: string } }) {
-  const predictions = await getUserPredictions(params.id);
+type Params = Promise<{ id: string }>
+
+export default async function page({ params }: { params: Params }) {
+  const id = (await params).id
+  const predictions = await getUserPredictions(id);
 
   return (
     <div className="min-h-screen bg-gray-100">
