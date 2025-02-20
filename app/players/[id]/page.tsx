@@ -13,7 +13,7 @@ interface Prediction {
 async function getUserPredictions(id: string): Promise<Prediction[]> {
   try {
     const res = await fetch(
-      `http://localhost:3000/api/prediction/getUsersPrediction/?id=${id}`,
+      `${process.env.backendUrl}/api/prediction/getUsersPrediction/?id=${id}`,
       {
         cache: "no-store",
       }

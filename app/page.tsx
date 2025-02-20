@@ -16,7 +16,7 @@ interface Leader {
 }
 
 async function getMatches(): Promise<Match[]> {
-  const res = await fetch("http://localhost:3000/api/matches/allmatches", {
+  const res = await fetch(`${process.env.backendUrl}/api/matches/allmatches`, {
     cache: "no-store",
   });
   if (!res.ok) throw new Error("Failed to fetch matches");
@@ -24,7 +24,7 @@ async function getMatches(): Promise<Match[]> {
 }
 
 async function getLeader(): Promise<Leader> {
-  const res = await fetch("http://localhost:3000/api/user/leader", {
+  const res = await fetch(`${process.env.backendUrl}/api/user/leader`, {
     cache: "no-store",
   });
   if (!res.ok) throw new Error("Failed to fetch leader");

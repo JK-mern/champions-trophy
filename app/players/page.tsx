@@ -7,10 +7,9 @@ interface Users {
   fullname: string;
   points: number;
 }
-
 async function getAllPlayers(): Promise<Users[]> {
   try {
-    const res = await fetch("http://localhost:3000/api/user/allusers", {
+    const res = await fetch(`${process.env.backendUrl}/api/user/allusers`, {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -51,11 +50,8 @@ export default async function PlayersPage() {
 
           <div className="space-y-4 cursor-pointer">
             {players.map((player, index) => (
-              <Link href={`players/${player.id}`}  key={player.id}>
-                <div
-                 
-                  className="bg-white border rounded-lg p-6 flex items-center gap-4 hover:shadow-md transition-shadow group"
-                >
+              <Link href={`players/${player.id}`} key={player.id}>
+                <div className="bg-white border rounded-lg p-6 flex items-center gap-4 hover:shadow-md transition-shadow group">
                   {/* Rank */}
                   <div
                     className={`flex items-center justify-center w-12 h-12 rounded-full ${
